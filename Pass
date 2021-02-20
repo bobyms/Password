@@ -1,0 +1,51 @@
+            //Variables
+            string password;
+            string[] wrongpass = { "", "", "", "", "" };
+            int spot = 0;
+            bool valid = false;
+
+            //Asks user to enter password
+            Console.WriteLine("Please a password. It must contain at least 1 capital and a special character");
+            password = Console.ReadLine();
+
+
+            //Ensures code runs until a password following the conditon is entered
+            while (valid == false)
+            {
+                //Checks if user re-entered a password
+                if (password != wrongpass[0] || password != wrongpass[1] || password != wrongpass[2] || password != wrongpass[3] || password != wrongpass[4])
+                {
+                    //Checks if special character is in password
+                    if (password.Contains('@') || password.Contains('$') || password.Contains('&') || password.Contains('%'))
+                    {
+                        //Checks if capital is in password
+                        if (password.Contains('A') || password.Contains('B') || password.Contains('C') || password.Contains('D') || password.Contains('E') || password.Contains('F') || password.Contains('G') || password.Contains('H') || password.Contains('I') || password.Contains('J') || password.Contains('K') || password.Contains('L') || password.Contains('M') || password.Contains('N') || password.Contains('O') || password.Contains('P') || password.Contains('Q') || password.Contains('R') || password.Contains('S') || password.Contains('T') || password.Contains('U') || password.Contains('V') || password.Contains('W') || password.Contains('X') || password.Contains('Y') || password.Contains('Z'))
+                        {
+                            Console.WriteLine("Your password is valid");
+                            Console.ReadLine();
+                            valid = true;
+                        }
+                        else
+                        {//Tells user there is no cap and puts password in invalid array
+                            Console.WriteLine("Your password does not contain a capital, Please try again");
+                            Console.ReadLine();
+                            spot++;
+                            password = Console.ReadLine();
+                        }
+                    }
+                    else
+                    {//Tells user there is no special character and puts password in invalid array
+                        Console.WriteLine("Your password does not contain a special character. Please try again");
+                        spot++;
+                        password = Console.ReadLine();
+                    }
+                }
+                else
+                {//tells usee they have reused a. invalid password
+                    Console.WriteLine("You've tried that before kid, you're not very creative. Try again");
+                    password = Console.ReadLine();
+                }
+            }
+        }
+    }
+}
